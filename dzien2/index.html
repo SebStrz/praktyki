@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="getCurrencyData(); getGoldData()">
+    <aside>
+        <section>
+            <select id="tables" onchange="getCurrencyData()">
+                <option value="a">tabela A</option>
+                <option value="b">tabela B</option>
+                <option value="c" selected>tabela C</option>
+            </select>
+            <select id="currencies">
+            </select>
+            <button onclick="DisplayCurrency()">Wybierz Walutę</button>
+        </section>
+        <section id="currencyTable"></section>
+    </aside>
+    <section id="gold">
+        <p id="goldPrice"></p>
+        <canvas style="width: 400px;" id="goldChart" ></canvas>
+    </section>
+    
+</body>
+</html>

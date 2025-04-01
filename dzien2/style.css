@@ -1,0 +1,12 @@
+#gold{
+    width: 50%;
+    float: right;
+}
+aside{
+    width: 49%;
+    display: grid;
+    float: left;
+}
+aside > section{
+    justify-self: center;
+}
