@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class palindrom {
+public class Palindrome {
     public static void main(String[] args){
         System.out.println("podaj słowo: ");
         Scanner sc = new Scanner(System.in);
-        palindrom(sc.next());
+        isPalindrome(sc.next());
+        sc.close();
     }
-    public static void palindrom(String s){
+    public static void isPalindrome(String s){
         int len = s.length()-1;
         for (int i = 0; i < len; i++) {
             if(s.charAt(i)==s.charAt(len-i)){
