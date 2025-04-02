@@ -1,12 +1,6 @@
-#gold{
-    width: 50%;
-    float: right;
+td::first-letter{
+    text-transform: capitalize;
 }
-aside{
-    width: 49%;
-    display: grid;
-    float: left;
-}
-aside > section{
-    justify-self: center;
+option::first-letter{
+    text-transform: capitalize;
 }

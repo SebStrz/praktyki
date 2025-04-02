@@ -4,28 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="getCurrencyData(); getGoldData()">
-    <aside>
-        <section>
-            <select id="tables" onchange="getCurrencyData()">
-                <option value="a">tabela A</option>
-                <option value="b">tabela B</option>
-                <option value="c" selected>tabela C</option>
-            </select>
-            <select id="currencies">
-            </select>
-            <button onclick="DisplayCurrency()">Wybierz Walutę</button>
+<body class="container-fluid" onload="getCurrencyData(); getGoldData()">
+    <div class="row">
+        <aside class="col-6">
+            <div id="main" class="row">
+                <section class="col">
+                    <div class="alert alert-success text-center">
+                        <div class="spinner-border invisible"></div>
+                        <p id="rate"></p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="number" id="sourceNumber" value="1">
+                        <select class="form-select" id="source" onchange="targetAndSourceSwitch(this)">
+                            <option value="pln">Złoty</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control bg-body" id="targetNumber" value="1" disabled>
+                        <select class="form-select" id="target" onchange="targetAndSourceSwitch(this)">
+                            <option value="pln">Złoty</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="DisplayCurrency()">Przelicz</button>
+                </section>
+            </div>
+            <div class="row">
+                <section class="col">
+                    <h2>historia</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</td>
+                                <th scope="col">Waluta źródłowa</td>
+                                <th scope="col">Ilość waluty źródłowej</td>
+                                <th scope="col">Waluta docelowa</td>
+                                <th scope="col">Ilość waluty docelowej</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </section>
+                
+            </div>
+            <!-- <section>
+                <select id="tables" onchange="getCurrencyData()">
+                    <option value="a">tabela A</option>
+                    <option value="b">tabela B</option>
+                    <option value="c" selected>tabela C</option>
+                </select>
+                <select id="currencies">
+                </select>
+                <button onclick="DisplayCurrency()">Wybierz Walutę</button>
+            </section>
+            <section id="currencyTable"></section> -->
+            
+        </aside>
+        <section class="col-6" id="gold">
+            <p id="goldPrice"></p>
+            <canvas style="width: 400px;" id="goldChart" ></canvas>
         </section>
-        <section id="currencyTable"></section>
-    </aside>
-    <section id="gold">
-        <p id="goldPrice"></p>
-        <canvas style="width: 400px;" id="goldChart" ></canvas>
-    </section>
+    </div>
+    
     
 </body>
 </html>
